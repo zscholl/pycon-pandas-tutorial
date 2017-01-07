@@ -53,7 +53,7 @@ def main():
 
     print('Writing "titles.csv"')
 
-    with open('../data/titles.csv', 'wb') as f:
+    with open('../data/titles.csv', 'w', newline='') as f:
         output = csv.writer(f)
         output.writerow(('title', 'year'))
         for raw_title in interesting_titles:
@@ -69,7 +69,7 @@ def main():
         line = next(lines)
     assert next(lines) == b'==================\n'
 
-    output = csv.writer(open('../data/release_dates.csv', 'wb'))
+    output = csv.writer(open('../data/release_dates.csv', 'w', newline=''))
     output.writerow(('title', 'year', 'country', 'date'))
 
     for line in lines:
@@ -100,7 +100,7 @@ def main():
 
     print('Finished writing "release_dates.csv"')
 
-    output = csv.writer(open('../data/cast.csv', 'wb'))
+    output = csv.writer(open('../data/cast.csv', 'w', newline=''))
     output.writerow(('title', 'year', 'name', 'type', 'character', 'n'))
 
     for role_type, filename in (
